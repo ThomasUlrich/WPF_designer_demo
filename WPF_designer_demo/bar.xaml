@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WPF_designer_demo.bar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_designer_demo"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="20">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="dynamic_range" Height="100" Width="10" Grid.Row="0">
+            <Rectangle x:Name="needle" Fill="MediumPurple" Height="{Binding NeedleHeight, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=UserControl}, FallbackValue=50}" Width="10" Canvas.Bottom="0"/>
+        </Canvas>
+        <Rectangle Height="100" Width="20" Stroke="Black"/>
+        <TextBlock Text="{Binding ProcessValue, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=UserControl}, FallbackValue=50}" Grid.Row="1" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>
